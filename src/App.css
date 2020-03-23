@@ -22,3 +22,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#gameboard {
+  display: block;
+  margin: 0 auto;
+  width: 360px;
+  height: 360px;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+  #gameboard {
+    width: 450px;
+    height: 450px;
+  } 
+}
