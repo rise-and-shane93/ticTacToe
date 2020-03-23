@@ -34,10 +34,20 @@
   flex-wrap: wrap;
 }
 
+.fa-times {
+  color: red;
+}
+
+.fa-circle-thin {
+  color: blue;
+}
+
 .game-square {
-  display: block;
+  display: flex;
   width: 120px;
   height: 120px;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-square:nth-child(odd) {
@@ -47,6 +57,21 @@
 .game-square:nth-child(even) {
   background-color: blue;
 }
+
+#players {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.player {
+  margin: 0 2rem;
+}
+
+.player p {
+  text-align: left;
+}
+
 
 @media screen and (min-width: 768px) {
   #gameboard {

@@ -13,6 +13,7 @@ class Square extends Component {
                 id={this.props.id}
                 className={this.props.className}
                 title={`Square ${this.props.count}`}>
+                    <i className="fa fa-times"></i>
             </div>
         )
     }
