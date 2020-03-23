@@ -34,9 +34,27 @@
   flex-wrap: wrap;
 }
 
+.game-square {
+  display: block;
+  width: 120px;
+  height: 120px;
+}
+
+.game-square:nth-child(odd) {
+  background-color: green;
+}
+
+.game-square:nth-child(even) {
+  background-color: blue;
+}
+
 @media screen and (min-width: 768px) {
   #gameboard {
     width: 450px;
     height: 450px;
-  } 
+  }
+  .game-square {
+    width: 150px;
+    height: 150px;
+  }
 }

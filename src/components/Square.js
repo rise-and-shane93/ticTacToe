@@ -8,7 +8,12 @@ class Square extends Component {
 
     render() {
         return (
-            <p>Square {this.props.id}</p>
+            <div 
+                onClick={() => this.props.handlePlayerSelect(this.props.count)}
+                id={this.props.id}
+                className={this.props.className}
+                title={`Square ${this.props.count}`}>
+            </div>
         )
     }
 }

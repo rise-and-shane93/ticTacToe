@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import GameBoard from "./components/GameBoard";
+import Player from "./components/Player";
 
 import { greeting } from "../src/redux/actions/game";
 import { connect } from 'react-redux';
@@ -16,7 +17,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <h1>Tic Tac Toe</h1>
+        <div id="players">
+          <Player num={1} id="player-1" />
+          <Player num={2} id="player-2" />
+        </div>
         <GameBoard />
       </div>
     );
