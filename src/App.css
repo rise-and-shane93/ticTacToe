@@ -26,9 +26,9 @@
 #gameboard {
   display: block;
   margin: 0 auto;
-  width: 360px;
+  width: 365px;
   height: 360px;
-  background-color: red;
+  /* background-color: red; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -50,12 +50,24 @@
   justify-content: center;
 }
 
-.game-square:nth-child(odd) {
+.active-player {
+  border: 2px solid black;
+}
+
+/* .game-square:nth-child(odd) {
   background-color: green;
 }
 
 .game-square:nth-child(even) {
   background-color: blue;
+} */
+
+.game-square:nth-child(-1n+6) {
+  border-bottom: 2px solid black;
+}
+
+.game-square:not(:nth-child(-3n+9)) {
+  border-right: 2px solid black;
 }
 
 #players {
@@ -75,7 +87,7 @@
 
 @media screen and (min-width: 768px) {
   #gameboard {
-    width: 450px;
+    width: 455px;
     height: 450px;
   }
   .game-square {

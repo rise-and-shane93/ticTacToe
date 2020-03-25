@@ -1,3 +1,4 @@
 export const game = {
-    STARTGAME: "STARTGAME"
+    STARTGAME: "STARTGAME",
+    CHANGEPLAYER: "CHANGEPLAYER"
 }

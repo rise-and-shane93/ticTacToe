@@ -6,3 +6,9 @@ export const greeting = () => {
         type: game.STARTGAME
     };
 }
+
+export const activePlayer = () => {
+    return {
+        type: game.CHANGEPLAYER
+    }
+}
