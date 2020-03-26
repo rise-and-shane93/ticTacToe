@@ -7,8 +7,9 @@ export const greeting = () => {
     };
 }
 
-export const activePlayer = () => {
-    return {
-        type: game.CHANGEPLAYER
-    }
+export const playerAction = (squareNum, count) => dispatch => {
+    dispatch({
+        type: game.CHANGEPLAYER,
+        payload: count
+    });
 }

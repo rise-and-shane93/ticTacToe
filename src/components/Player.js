@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { activePlayer } from "../../src/redux/actions/game";
+import { playerAction } from "../../src/redux/actions/game";
 import { connect } from 'react-redux';
 
 class Player extends Component {
@@ -39,6 +39,6 @@ const mapStateToProps = state => ({
   export default connect(
     mapStateToProps,
     {
-        activePlayer
+        playerAction
     }
   )(Player);

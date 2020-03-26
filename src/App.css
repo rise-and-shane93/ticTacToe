@@ -42,6 +42,10 @@
   color: blue;
 }
 
+.fa {
+  font-size: 80px;
+}
+
 .game-square {
   display: flex;
   width: 120px;
@@ -93,5 +97,8 @@
   .game-square {
     width: 150px;
     height: 150px;
+  }
+  .fa {
+    font-size: 100px;
   }
 }
