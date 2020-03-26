@@ -19,9 +19,22 @@ export default function gameReducer(state = INITIAL_STATE, action) {
         case game.CHANGEPLAYER:
             return {
                 ...state,
-                symbolCount: state.symbolCount + action.payload,
+                symbolCount: state.symbolCount + action.payload.count,
                 playerOneActive: !state.playerOneActive
             };
+        case game.UPDATEGAMESTATE:
+            return {
+                ...state,
+                currentGame: state.currentGame.map(
+                    (el, i) => {
+                        if (i === action.payload.row) {
+                            let row = state.currentGame[action.payload.row];
+                            row[action.payload.index] = action.payload.symbol;
+                            return row;
+                        }
+                    }
+                )
+            }
         default:
             return state;
     }

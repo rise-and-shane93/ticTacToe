@@ -7,9 +7,20 @@ export const greeting = () => {
     };
 }
 
-export const playerAction = (squareNum, count) => dispatch => {
+export const playerAction = (squareNum, count, symbol, index, row) => dispatch => {
     dispatch({
         type: game.CHANGEPLAYER,
         payload: count
+    });
+}
+
+export const updateGameState = (symbol, index, row) => dispatch => {
+    dispatch({
+        type: game.UPDATEGAMESTATE,
+        payload: {
+            symbol,
+            index,
+            row
+        }
     });
 }
