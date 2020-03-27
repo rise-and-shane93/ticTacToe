@@ -8,6 +8,10 @@ class GameBoard extends Component {
         this.createSquareElems();
     }
 
+    componentWillUpdate() {
+        console.log("update");
+    }
+
     constructor(props) {
         super(props);
         this.state = {

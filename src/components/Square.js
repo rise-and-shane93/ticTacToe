@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { playerAction, updateGameState } from "../../src/redux/actions/game";
+import { playerAction, updateGameState, handleGameWinner } from "../../src/redux/actions/game";
 import { connect } from 'react-redux';
 
 class Square extends Component {
@@ -48,17 +48,15 @@ class Square extends Component {
     }
 
     handleSquareFill = (playerOneBool) => {
-        if (playerOneBool) {
-            this.setState({
-                fontAwesome: "times",
-                symbol: "X"
-            });
-        } else {
-            this.setState({
-                fontAwesome: "circle-thin",
-                symbol: "O"
-            });
-        }
+        let fontAwesome = playerOneBool ? "times" : "circle-thin";
+        let symbol = playerOneBool ? "X" : "O";
+        this.setState({
+            fontAwesome,
+            symbol
+        }, () => {
+            this.props.updateGameState(this.state.symbol, this.state.index, this.state.row);
+            this.props.handleGameWinner(this.props.currentGame, this.state.symbol);
+        });
     }
 
     render() {
@@ -69,8 +67,9 @@ class Square extends Component {
                 onClick={() => {
                     if (!this.state.symbol) {
                         this.props.playerAction(this.props.count, 1);
-                        this.props.updateGameState(this.state.symbol, this.state.index, this.state.row);
-                        this.handleSquareFill(this.props.currPlayer);  
+                        this.handleSquareFill(this.props.currPlayer);
+                        // console.log(this.state.symbol);
+                        // ;
                     }
                 }}
                 id={this.props.id}
@@ -85,13 +84,15 @@ class Square extends Component {
 
 const mapStateToProps = state => ({
     currPlayer: state.game.playerOneActive,
-    numSymbol: state.game.symbolCount
+    numSymbol: state.game.symbolCount,
+    currentGame: state.game.currentGame
   })
   
   export default connect(
     mapStateToProps,
     {
         playerAction,
-        updateGameState
+        updateGameState,
+        handleGameWinner
     }
   )(Square);

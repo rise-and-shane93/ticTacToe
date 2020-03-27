@@ -24,3 +24,13 @@ export const updateGameState = (symbol, index, row) => dispatch => {
         }
     });
 }
+
+export const handleGameWinner = (currGame, symbol) => dispatch => {
+    dispatch({
+        type: game.PLAYERWINS,
+        payload: {
+            currGame,
+            symbol
+        }
+    })
+}
