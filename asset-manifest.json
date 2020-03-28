@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ticTacToe/static/css/main.4b5241f0.chunk.css",
+    "main.js": "/ticTacToe/static/js/main.ddf66c7b.chunk.js",
+    "main.js.map": "/ticTacToe/static/js/main.ddf66c7b.chunk.js.map",
+    "runtime-main.js": "/ticTacToe/static/js/runtime-main.b26fcaba.js",
+    "runtime-main.js.map": "/ticTacToe/static/js/runtime-main.b26fcaba.js.map",
+    "static/js/2.2c472d56.chunk.js": "/ticTacToe/static/js/2.2c472d56.chunk.js",
+    "static/js/2.2c472d56.chunk.js.map": "/ticTacToe/static/js/2.2c472d56.chunk.js.map",
+    "index.html": "/ticTacToe/index.html",
+    "precache-manifest.a83f6a652dc07392be9dcc106c7237a2.js": "/ticTacToe/precache-manifest.a83f6a652dc07392be9dcc106c7237a2.js",
+    "service-worker.js": "/ticTacToe/service-worker.js",
+    "static/css/main.4b5241f0.chunk.css.map": "/ticTacToe/static/css/main.4b5241f0.chunk.css.map",
+    "static/js/2.2c472d56.chunk.js.LICENSE.txt": "/ticTacToe/static/js/2.2c472d56.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/ticTacToe/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b26fcaba.js",
+    "static/js/2.2c472d56.chunk.js",
+    "static/css/main.4b5241f0.chunk.css",
+    "static/js/main.ddf66c7b.chunk.js"
+  ]
+}
