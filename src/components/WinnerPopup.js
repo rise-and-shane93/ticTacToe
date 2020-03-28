@@ -16,22 +16,27 @@ class WinnerPopup extends Component {
 
     handleResetGame = () => {
         this.props.resetGame();
+        this.setState({
+            display: "hide",
+            theWinner: ""
+        });
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.winner !== this.props.winner) {
+        if (prevProps.winner !== this.props.winner && !prevProps.winner.includes("Player")) {
             this.setState({
                 display: "",
                 theWinner: this.props.winner
             });
         }
+        
     }
     /*export const resetGame = (symbolCount, playerOneActive, currentWinner, currentGame) => dispatch => {*/
     render() {
         return(
             <div id="winner-popup" className={`${this.state.display}`}>
                 <h2>{this.state.theWinner} wins!</h2>
-                <button onClick={this.props.resetGame}>Reset Game</button>
+                <button onClick={this.handleResetGame}>Reset Game</button>
             </div>
         );
     }

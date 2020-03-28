@@ -13,6 +13,7 @@ const INITIAL_STATE = {
 }
 
 export default function gameReducer(state = INITIAL_STATE, action) {
+    // console.log(action.type === game.RESETGAME);
     switch(action.type) {
         case game.STARTGAME:
             console.log(state.message);
@@ -100,27 +101,28 @@ export default function gameReducer(state = INITIAL_STATE, action) {
                         ...state,
                         currentWinner: winner,
                         playerOneScore: state.playerOneScore + incScore
-                    }
+                    };
                 } else {
                     return {
                         ...state,
                         currentWinner: winner,
                         playerTwoScore: state.playerTwoScore + incScore
-                    }
+                    };
                 }
                 
             }
             // break;
         case game.RESETGAME:
             const { symbolCount, playerOneActive, currentWinner, currentGame } = action.payload;
-            console.log("reset game reducer", action.payload.symbolCount);
-            // return {
-            //     ...state,
-            //     symbolCount,
-            //     playerOneActive,
-            //     currentWinner,
-            //     currentGame
-            // }
+            if (action.type === game.RESETGAME) {
+                return {
+                    ...state,
+                    symbolCount,
+                    playerOneActive,
+                    currentWinner,
+                    currentGame
+                }
+            }
         default:
             return state;
     }

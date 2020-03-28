@@ -47,6 +47,15 @@ class Square extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.numSymbol !== this.props.numSymbol && this.props.numSymbol === 0) {
+            this.setState({
+                symbol: undefined,
+                fontAwesome: undefined,
+            });
+        }
+    }
+
     handleSquareFill = (playerOneBool) => {
         let fontAwesome = playerOneBool ? "times" : "circle-thin";
         let symbol = playerOneBool ? "X" : "O";
