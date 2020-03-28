@@ -34,3 +34,17 @@ export const handleGameWinner = (currGame, symbol) => dispatch => {
         }
     })
 }
+
+export const resetGame = () => dispatch => {
+    dispatch({
+        type: game.RESETGAME,
+        payload: {
+            symbolCount: 0,
+            playerOneActive: true,
+            currentWinner: "",
+            currentGame: [[null, null, null],
+            [null, null, null],
+            [null, null, null]]
+        }
+    })
+}

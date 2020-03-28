@@ -4,6 +4,7 @@ import './App.css';
 
 import GameBoard from "./components/GameBoard";
 import Player from "./components/Player";
+import WinnerPopup from "./components/WinnerPopup";
 
 import { greeting } from "../src/redux/actions/game";
 import { connect } from 'react-redux';
@@ -23,6 +24,7 @@ class App extends Component {
           <Player num={2} id="player-2" />
         </div>
         <GameBoard />
+        <WinnerPopup />
       </div>
     );
   }

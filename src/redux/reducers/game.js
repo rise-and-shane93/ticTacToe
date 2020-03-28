@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     playerTwoScore: 0,
     symbolCount: 0,
     playerOneActive: true,
+    currentWinner: "",
     currentGame: [[null, null, null],
                   [null, null, null],
                   [null, null, null]]
@@ -39,21 +40,87 @@ export default function gameReducer(state = INITIAL_STATE, action) {
             }
         case game.PLAYERWINS:
             let currGameArr = state.currentGame;
-            currGameArr.forEach((el,i) => {
-                // el.every((el,i) => {
-                //     if (el === "X") {
-                //         console.log(el);
-                //         console.log("player 1 wins");
-                //     } else if (el === "O") {
-                //         console.log("player 2 wins");
-                //     }
-                // })
+            let winner = "";
+            let incScore = 0;
+            currGameArr.forEach((el,i, arr) => {
+
+                // Check if any rows have the same symbols
                 if (el.every((el,i) => el === "X")) {
-                    console.log("player 1 wins");
+                    winner = "Player 1";
+                    incScore = 1;
                 } else if (el.every((el,i) => el === "O")) {
-                    console.log("player 2 wins");
+                    winner = "Player 2";
+                    incScore = 1;
                 }
             });
+            
+            // Check if any columns have the same symbols
+            for (let h = 0; h < 3; h++) {
+                let column = currGameArr.map(x => x[h]);
+                column.forEach((el, i) => {
+                    if (column.every((el,i) => el === "X")) {
+                        winner = "Player 1";
+                        incScore = 1;
+                    } else if (column.every((el,i) => el === "O")) {
+                        winner = "Player 2";
+                        incScore = 1;
+                    }
+                });
+            }
+
+            // Check if any diagonals have the same symbols
+            let diagonal1 = currGameArr.map((el,i) => {
+                return el[i];
+            });
+
+            if (diagonal1.every((el,i) => el === "X")) {
+                winner = "Player 1";
+                incScore = 1;
+            } else if (diagonal1.every((el,i) => el === "O")) {
+                winner = "Player 2";
+                incScore = 1;
+            }
+            
+            let reversedArray = currGameArr.slice(0).reverse().map((el,i) => {
+                return el[i];
+            });
+            
+            if (reversedArray.every((el,i) => el === "X")) {
+                winner = "Player 1";
+                incScore = 1;
+            } else if (reversedArray.every((el,i) => el === "O")) {
+                winner = "Player 2";
+                incScore = 1;
+            }
+
+            
+            if (winner !== "" && incScore !== 0) {
+                if (winner === "Player 1") {
+                    return {
+                        ...state,
+                        currentWinner: winner,
+                        playerOneScore: state.playerOneScore + incScore
+                    }
+                } else {
+                    return {
+                        ...state,
+                        currentWinner: winner,
+                        playerTwoScore: state.playerTwoScore + incScore
+                    }
+                }
+                
+            }
+            // break;
+        case game.RESETGAME:
+            const { symbolCount, playerOneActive, currentWinner, currentGame } = action.payload;
+            console.log("reset game reducer", action.payload.symbolCount);
+            // return {
+            //     ...state,
+            //     symbolCount,
+            //     playerOneActive,
+            //     currentWinner,
+            //     currentGame
+            // }
         default:
             return state;
     }
